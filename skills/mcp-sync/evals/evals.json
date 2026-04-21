@@ -1,0 +1,43 @@
+{
+  "skill_name": "mcp-sync",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I've been adding MCP servers and agent definitions in VS Code but they don't show up when I use the Copilot CLI. I also have skills in both ~/.copilot/skills and ~/.agents/skills that aren't in sync. Can you sync everything across both tools? Do a dry run first so I can see what would change.",
+      "expected_output": "The sync script runs with --dry-run showing planned changes for MCP servers, agents, and skills. Output shows which servers would be added/updated, which .agent.md files would be copied, and which skill directories would be synced.",
+      "files": [],
+      "expectations": [
+        "The assistant runs sync.py (not sync_mcp.py) with --dry-run flag",
+        "The output shows an MCP Servers section with planned changes",
+        "The output shows an Agents section with planned changes",
+        "The output shows a Skills section with planned changes",
+        "The assistant explains the dry-run results to the user before applying changes"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I only want to sync my agent definitions from VS Code to the CLI. I don't need MCP servers or skills synced right now. Show me what would happen first.",
+      "expected_output": "The sync script runs with --resource-type agents and --dry-run, showing only agent file sync plans. No MCP server or skill changes are shown.",
+      "files": [],
+      "expectations": [
+        "The assistant uses --resource-type agents (or -r agents) flag",
+        "The assistant uses --dry-run flag",
+        "The output does NOT include MCP server sync information",
+        "The output does NOT include skills sync information",
+        "The output shows .agent.md files that would be copied between VS Code prompts and CLI agents directory"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Sync my skills between the .copilot and .agents directories. Go ahead and apply the changes, no need for a preview.",
+      "expected_output": "The sync script runs with --resource-type skills without --dry-run, actually copying skill directories between ~/.copilot/skills/ and ~/.agents/skills/. The assistant confirms what was synced.",
+      "files": [],
+      "expectations": [
+        "The assistant uses --resource-type skills flag",
+        "The assistant does NOT use --dry-run flag (user said to apply changes)",
+        "The script runs against the actual skill directories",
+        "The output confirms which skills were copied and in which direction"
+      ]
+    }
+  ]
+}
