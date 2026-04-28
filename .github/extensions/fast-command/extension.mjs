@@ -5,15 +5,6 @@ const TIMEOUT_MS = 120_000;
 
 let session;
 
-function buildFastPrompt(request) {
-    return `Handle this as a fast, lightweight, single-message request.
-
-Work directly and concisely. You may use tools and edit code when the request calls for it. Do not perform destructive operations, handle secrets, or attempt production changes unless the user explicitly asked for that and the normal permission flow allows it. If the request is unsafe, ambiguous, or too complex for fast mode, say so plainly and explain what workflow is needed instead.
-
-Request:
-${request}`;
-}
-
 session = await joinSession({
     commands: [
         {
@@ -23,7 +14,7 @@ session = await joinSession({
                 const request = context.args.trim();
 
                 if (!request) {
-                    await session.log("Usage: /fast <easy request to delegate>", { level: "warning" });
+                    await session.log("Usage: /fast <request to delegate>", { level: "warning" });
                     return;
                 }
 
@@ -37,7 +28,7 @@ session = await joinSession({
 
                     await session.sendAndWait(
                         {
-                            prompt: buildFastPrompt(request),
+                            prompt: request,
                             mode: "enqueue",
                         },
                         TIMEOUT_MS,
