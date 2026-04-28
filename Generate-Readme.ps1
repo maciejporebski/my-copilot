@@ -71,9 +71,11 @@ $agents = @()
 if (Test-Path $agentsDir) {
     Get-ChildItem -Path $agentsDir -Filter '*.agent.md' -File | ForEach-Object {
         $fm = Get-Frontmatter -Content (Get-Content $_.FullName -Raw -Encoding utf8)
+        $rawDesc = if ($fm['description']) { $fm['description'] } else { '—' }
+        $shortDesc = ($rawDesc -split '\. WHEN:')[0] -replace '\s+$', ''
         $agents += [PSCustomObject]@{
             Name        = if ($fm['name']) { $fm['name'] } else { $_.BaseName -replace '\.agent$', '' }
-            Description = if ($fm['description']) { $fm['description'] } else { '—' }
+            Description = $shortDesc
             File        = ".github/agents/$($_.Name)"
         }
     }
