@@ -6,7 +6,7 @@ A collection of custom GitHub Copilot agents, skills, and extensions.
 
 | Name | Description |
 |------|-------------|
-| [troubleshoot-functions-startup](.github/agents/troubleshoot-functions-startup.agent.md) | Diagnose and resolve Azure Functions host startup failures — the 'Function host is not running' errors, 503s, missing functions, and restart loops. Walks through a systematic checklist covering app settings, storage connectivity, host.json, extension bundles, deployment packages, startup code, worker runtime, networking, and platform issues |
+| [Troubleshoot Azure Functions Startup](.github/agents/troubleshoot-functions-startup.agent.md) | Diagnose and resolve Azure Functions host startup failures — the 'Function host is not running' errors, 503s, missing functions, and restart loops. Walks through a systematic checklist covering app settings, storage connectivity, host.json, extension bundles, deployment packages, startup code, worker runtime, networking, and platform issues |
 
 ## Skills
 
@@ -18,4 +18,4 @@ A collection of custom GitHub Copilot agents, skills, and extensions.
 
 | Name | Commands | Description |
 |------|----------|-------------|
-| [fast-command](.github/extensions/fast-command) | /fast | Run one easy request on a lightweight model, then restore the foreground model. |
+| [fast-command](.github/extensions/fast-command) | /fast | Run one easy request on gpt-5.4-mini, then restore the foreground model. |

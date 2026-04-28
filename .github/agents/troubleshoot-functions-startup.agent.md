@@ -1,5 +1,5 @@
 ---
-name: troubleshoot-functions-startup
+name: Troubleshoot Azure Functions Startup
 description: "Diagnose and resolve Azure Functions host startup failures — the 'Function host is not running' errors, 503s, missing functions, and restart loops. Walks through a systematic checklist covering app settings, storage connectivity, host.json, extension bundles, deployment packages, startup code, worker runtime, networking, and platform issues. WHEN: function host is not running, functions not starting, Azure Functions 503, functions disappeared, function app error state, functions restart loop, host startup issue, FUNCTIONS_EXTENSION_VERSION error, FUNCTIONS_WORKER_RUNTIME mismatch, AzureWebJobsStorage error, host.json version missing, extension bundle error, run from package failed, function app down, functions not visible in portal, triggers not firing, timer trigger silent, queue trigger not working, function app crash, AZFD0005, AZFD0006, AZFD0009, AZFD0011, AZFD0013, function app offline, app_offline.htm, gRPC worker failure, function app VNet startup failure, function app deployment broke functions."
 ---
 
