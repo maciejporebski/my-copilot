@@ -18,4 +18,4 @@ A collection of custom GitHub Copilot agents, skills, and extensions.
 
 | Name | Commands | Description |
 |------|----------|-------------|
-| [fast-command](.github/extensions/fast-command) | /fast | Run one easy request on gpt-5.4-mini, then restore the foreground model. |
+| [fast-command](.github/extensions/fast-command) | /fast | Run one easy request on a lightweight model, then restore the foreground model. |
